@@ -10,11 +10,9 @@
 
     <h1>Catch the squirrel</h1>
 
-    <div id="myContainer" onmouseover="moveSquirrel()">
-        <div id="squirrel">
+        <div id="squirrel" onmouseover="moveSquirrel()">
             <a href="capture.html"><input type="image" src="squirrel1.png" /></a>
         </div>
-    </div>
 
     <script>
         function moveSquirrel()
@@ -39,7 +37,7 @@
                     if(goingLeft == false)
                     {
                         elem.style.left = posX + 'px';
-                        posX += 5;
+                        posX += 10;
 
                         if(posX >= 1280)
                         {
@@ -49,7 +47,7 @@
                     else
                     {
                         elem.style.left = posX + 'px';
-                        posX -= 5;
+                        posX -= 10;
 
                         if(posX <= 0)
                         {
@@ -60,7 +58,7 @@
                     if(goingUp == false)
                     {
                         elem.style.top = posY + 'px';
-                        posY += 5;
+                        posY += 10;
 
                         if(posY >= 700)
                         {
@@ -70,7 +68,7 @@
                     else
                     {
                         elem.style.top = posY + 'px';
-                        posY -= 5;
+                        posY -= 10;
 
                         if(posY <= 0)
                         {
