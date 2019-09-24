@@ -1,83 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+  <head>
     <title>Catch me if you can</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  </head>
 
-<body>
+  <body>
 
     <h1>Catch the squirrel</h1>
 
-        <div id="squirrel" onmouseover="moveSquirrel()">
-            <a href="capture.html"><input type="image" src="squirrel1.png" /></a>
-        </div>
+    <div id="squirrel" onmouseover="moveSquirrel()">
+      <a href="capture.html"><input type="image" src="squirrel1.png" /></a>
+    </div>
 
     <script>
-        function moveSquirrel()
-        {
-          var elem = document.getElementById("squirrel");
-          var posX = 0;
-          var posY = 0;
-          var id = setInterval(frame, 10);
-          var goingLeft = false;
-          var goingUp = false;
-          var started = false;
+      function moveSquirrel() {
+        var elem = document.getElementById("squirrel");
+        var posX = 0;
+        var posY = 0;
+        var id = setInterval(frame, 10);
+        var goingLeft = false;
+        var goingUp = false;
+        var started = false;
 
-              function frame()
-              {
-                if (posY == window.height)
-                {
-                  clearInterval(id);
-                }
+        function frame() {
+          if (posY == window.height) {
+            clearInterval(id);
+          } else {
+            if (goingLeft == false) {
+              elem.style.left = posX + 'px';
+              posX += 10;
 
-                else
-                {
-                    if(goingLeft == false)
-                    {
-                        elem.style.left = posX + 'px';
-                        posX += 10;
+              if (posX >= 1280) {
+                goingLeft = true;
+              }
+            } else {
+              elem.style.left = posX + 'px';
+              posX -= 10;
 
-                        if(posX >= 1280)
-                        {
-                            goingLeft = true;
-                        }
-                    }
-                    else
-                    {
-                        elem.style.left = posX + 'px';
-                        posX -= 10;
-
-                        if(posX <= 0)
-                        {
-                            goingLeft = false;
-                        }
-                    }
-
-                    if(goingUp == false)
-                    {
-                        elem.style.top = posY + 'px';
-                        posY += 10;
-
-                        if(posY >= 700)
-                        {
-                            goingUp = true;
-                        }
-                    }
-                    else
-                    {
-                        elem.style.top = posY + 'px';
-                        posY -= 10;
-
-                        if(posY <= 0)
-                        {
-                            goingUp = false;
-                        }
-                    }
-                }
+              if (posX <= 0) {
+                goingLeft = false;
+              }
             }
+
+            if (goingUp == false) {
+              elem.style.top = posY + 'px';
+              posY += 10;
+
+              if (posY >= 700) {
+                goingUp = true;
+              }
+            } else {
+              elem.style.top = posY + 'px';
+              posY -= 10;
+
+              if (posY <= 0) {
+                goingUp = false;
+              }
+            }
+          }
         }
+      }
     </script>
-</body>
+  </body>
+
 </html>
